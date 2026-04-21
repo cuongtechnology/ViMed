@@ -49,19 +49,21 @@ async function main() {
     },
   });
 
-  const department = await prisma.department.create({
-    data: {
-      organizationId: organization.id,
-      branchId: branch.id,
-      code: "OPS",
-      name: "Vận hành",
-      status: "ACTIVE",
-    },
-  }).catch(async () => {
-    return prisma.department.findFirstOrThrow({
-      where: { organizationId: organization.id, code: "OPS" },
-    });
+  const existingDepartment = await prisma.department.findFirst({
+    where: { organizationId: organization.id, code: "OPS", deletedAt: null },
   });
+
+  const department =
+    existingDepartment ??
+    (await prisma.department.create({
+      data: {
+        organizationId: organization.id,
+        branchId: branch.id,
+        code: "OPS",
+        name: "Vận hành",
+        status: "ACTIVE",
+      },
+    }));
 
   const role = await prisma.role.upsert({
     where: {

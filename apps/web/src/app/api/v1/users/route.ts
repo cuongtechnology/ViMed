@@ -29,10 +29,11 @@ export async function GET(request: NextRequest) {
     }
 
     const { skip, limit, page } = getPagination(request.nextUrl.searchParams);
-    const [total, users] = await Promise.all([
-      prisma.user.count({ where: { organizationId, deletedAt: null } }),
+    const where = { organizationId, deletedAt: null };
+    const [total, users] = await prisma.$transaction([
+      prisma.user.count({ where }),
       prisma.user.findMany({
-        where: { organizationId, deletedAt: null },
+        where,
         skip,
         take: limit,
         orderBy: { createdAt: "desc" },
