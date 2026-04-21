@@ -2,6 +2,22 @@
 
 Hệ thống quản lý phòng khám/bệnh viện đa khoa dành cho thị trường Việt Nam.
 
+## 📌 Trạng thái triển khai thực tế
+
+> Tài liệu kiến trúc/PRD hiện mô tả tầm nhìn đầy đủ. Trạng thái code hiện tại đang ở mức nền tảng MVP.
+
+Đã triển khai:
+- Đăng nhập Credentials với NextAuth (JWT) + Prisma
+- Dashboard cơ bản và lấy số liệu thật từ API
+- Bộ API MVP mức tối thiểu (`/api/v1`) cho: roles, users, branches, departments, employees, appointments, cashier sessions
+- Seed dữ liệu cơ bản để chạy demo local
+- CI cơ bản: lint + build + test
+
+Đang ưu tiên tiếp theo:
+- Hoàn thiện CRUD đầy đủ theo module (detail/update/delete + filter/sort)
+- Chuẩn hóa RBAC theo ma trận quyền chi tiết
+- Mở rộng test cho API routes và các luồng nghiệp vụ chính
+
 ## 🚀 Tính năng chính
 
 ### Module Quản lý
@@ -141,6 +157,7 @@ pnpm dev          # Chạy development server
 pnpm build        # Build production
 pnpm start        # Start production server
 pnpm lint         # Run linter
+pnpm test         # Run unit tests
 
 pnpm db:generate  # Generate Prisma client
 pnpm db:migrate   # Run database migrations
