@@ -88,6 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { email, username, password, firstName, lastName, phone, roleIds } = parsed.data;
+    const actorId = auth.user.id!;
     const passwordHash = await hash(password, 12);
     const fullName = `${lastName} ${firstName}`.trim();
 
@@ -101,12 +102,12 @@ export async function POST(request: NextRequest) {
         lastName,
         fullName,
         phone,
-        createdBy: auth.user.id,
+        createdBy: actorId,
         roles: roleIds?.length
           ? {
               create: roleIds.map((roleId) => ({
                 roleId,
-                grantedBy: auth.user.id,
+                grantedBy: actorId,
               })),
             }
           : undefined,

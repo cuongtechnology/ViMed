@@ -5,7 +5,7 @@ export const credentialsSchema = z.object({
   password: z.string().min(1, "Vui lòng nhập mật khẩu"),
 });
 
-type UserRoleWithPermissions = {
+export type UserRoleWithPermissions = {
   role: {
     code: string;
     rolePermissions: Array<{

@@ -2,7 +2,7 @@ import { compare } from "bcryptjs";
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { prisma } from "@clinic/database";
-import { collectPermissions, parseCredentials } from "./auth-utils";
+import { collectPermissions, parseCredentials, type UserRoleWithPermissions } from "./auth-utils";
 
 export const authOptions: NextAuthConfig = {
   providers: [
@@ -52,8 +52,9 @@ export const authOptions: NextAuthConfig = {
           throw new Error("Email hoặc mật khẩu không đúng");
         }
 
-        const roles = user.roles.map((userRole: any) => userRole.role.code);
-        const permissions = collectPermissions(user.roles as any);
+        const typedRoles = user.roles as UserRoleWithPermissions[];
+        const roles = typedRoles.map((userRole) => userRole.role.code);
+        const permissions = collectPermissions(typedRoles);
 
         return {
           id: user.id,
