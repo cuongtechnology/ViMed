@@ -13,6 +13,8 @@ async function upsertPermission(code: string, module: string, action: string, re
 
 async function main() {
   const adminPasswordHash = await hash("Admin@123", 12);
+  const demoAppointmentDate = new Date("2026-01-15T00:00:00.000Z");
+  const demoInvoiceItems = [{ name: "Khám tổng quát", quantity: 1, unitPrice: 500000 }];
 
   const organization = await prisma.organization.upsert({
     where: { code: "VIETCARE" },
@@ -210,7 +212,7 @@ async function main() {
     update: {
       branchId: branch.id,
       customerId: customer.id,
-      appointmentDate: new Date(),
+      appointmentDate: demoAppointmentDate,
       startTime: "09:00",
       status: "SCHEDULED",
     },
@@ -219,7 +221,7 @@ async function main() {
       branchId: branch.id,
       customerId: customer.id,
       appointmentNo: "APT-0001",
-      appointmentDate: new Date(),
+      appointmentDate: demoAppointmentDate,
       startTime: "09:00",
       status: "SCHEDULED",
     },
@@ -265,7 +267,7 @@ async function main() {
       balance: 0,
       status: "PAID",
       paymentStatus: "PAID",
-      items: [{ name: "Khám tổng quát", quantity: 1, unitPrice: 500000 }],
+      items: demoInvoiceItems,
     },
     create: {
       organizationId: organization.id,
@@ -280,7 +282,7 @@ async function main() {
       balance: 0,
       status: "PAID",
       paymentStatus: "PAID",
-      items: [{ name: "Khám tổng quát", quantity: 1, unitPrice: 500000 }],
+      items: demoInvoiceItems,
     },
   });
 
