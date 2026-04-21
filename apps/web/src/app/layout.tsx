@@ -13,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
+      {/* Use system font to avoid external Google Fonts fetch failures in restricted CI/dev networks */}
       <body className="font-sans">{children}</body>
     </html>
   );
