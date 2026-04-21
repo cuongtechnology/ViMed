@@ -12,6 +12,7 @@ Hệ thống quản lý phòng khám/bệnh viện đa khoa dành cho thị trư
 - Bộ API MVP mức tối thiểu (`/api/v1`) cho: roles, users, branches, departments, employees, appointments, cashier sessions
 - Seed dữ liệu cơ bản để chạy demo local
 - CI cơ bản: lint + build + test
+- Layout dùng `font-sans` thay cho Google Fonts để tránh lỗi build trong môi trường CI/dev bị chặn truy cập internet
 
 Đang ưu tiên tiếp theo:
 - Hoàn thiện CRUD đầy đủ theo module (detail/update/delete + filter/sort)
