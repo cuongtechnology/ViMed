@@ -106,7 +106,7 @@ model Department {
   branch          Branch?  @relation(fields: [branchId], references: [id])
   parent          Department? @relation("DepartmentHierarchy", fields: [parentId], references: [id])
   children        Department[] @relation("DepartmentHierarchy")
-  manager         Employee? @relation(fields: [managerId], references: [id])
+  manager         Employee? @relation("DepartmentManager", fields: [managerId], references: [id])
   employees       Employee[]
   positions       Position[]
 

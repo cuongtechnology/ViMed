@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Clinic Management System - Việt Care",
@@ -16,7 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={inter.className}>{children}</body>
+      {/* Use system font to avoid external Google Fonts fetch failures in restricted CI/dev networks */}
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

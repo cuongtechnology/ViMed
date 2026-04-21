@@ -4,6 +4,14 @@
 
 ---
 
+## 0. Lưu ý trạng thái kiến trúc
+
+- Tài liệu này mô tả kiến trúc mục tiêu đầy đủ cho sản phẩm.
+- Ở thời điểm hiện tại, codebase đã có nền tảng: auth, dashboard, Prisma schema lớn, seed cơ bản và nhóm API MVP `/api/v1` cho module trọng tâm.
+- Các thành phần nâng cao (workflow phức tạp, tích hợp ngoài, quan sát hệ thống đầy đủ) đang nằm trong roadmap tiếp theo.
+
+---
+
 ## 1. Kiến trúc tổng thể
 
 ```

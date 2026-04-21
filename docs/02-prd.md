@@ -4,7 +4,13 @@
 
 **Version**: 1.0  
 **Date**: 2024  
-**Status**: Draft
+**Status**: Draft (Vision) + MVP Foundation In Progress
+
+## 0. Trạng thái triển khai hiện tại (Code Reality Snapshot)
+
+- Đã có: auth credentials, dashboard, seed dữ liệu cơ bản, API MVP mức tối thiểu cho module cốt lõi.
+- Chưa hoàn tất: full CRUD, workflow nghiệp vụ sâu, phân quyền chi tiết theo toàn bộ ma trận quyền.
+- Mục tiêu ngắn hạn: hoàn thiện các API lõi và test/CI để đảm bảo độ ổn định trước khi mở rộng tính năng.
 
 ---
 

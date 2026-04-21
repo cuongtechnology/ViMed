@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "lint": "turbo run lint",
-    "db:generate": "turbo run db:generate",
-    "db:migrate": "turbo run db:migrate",
-    "db:push": "turbo run db:push",
-    "db:seed": "turbo run db:seed",
-    "db:studio": "turbo run db:studio"
+    "dev": "pnpm --filter @clinic/web dev",
+    "build": "pnpm --filter @clinic/web build",
+    "start": "pnpm --filter @clinic/web start",
+    "lint": "pnpm --filter @clinic/web lint",
+    "test": "pnpm --filter @clinic/web test",
+    "db:generate": "pnpm --filter @clinic/database db:generate",
+    "db:migrate": "pnpm --filter @clinic/database db:migrate",
+    "db:push": "pnpm --filter @clinic/database db:push",
+    "db:seed": "pnpm --filter @clinic/database db:seed",
+    "db:studio": "pnpm --filter @clinic/database db:studio"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
